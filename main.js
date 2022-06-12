@@ -52,9 +52,7 @@ renderTable(students)
     const tbody = document.createElement('tbody')
 
   
-    function productDelete(table) {
-        table.parents("tr").remove();
-    }
+    
 
     //For each element on the table, load DB data
     for(let index in students){
@@ -77,8 +75,13 @@ renderTable(students)
       row.appendChild(del)
       tbody.appendChild(row)
       
+      function productDelete(table) {
+        row.remove();
+    }
     }
     table.appendChild(tbody)
+
+    
 
   }
 
