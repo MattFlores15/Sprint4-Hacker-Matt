@@ -1,43 +1,35 @@
-import './style.css'
+import './style.scss'
 import * as firebase from './src/firebase.js';
 
-
+//////////////MAIN JS//////////////////
 
 const app = document.querySelector("#app") 
 const table = document.querySelector("#ex-table")
-// let isSortAsc = false
 
-//////////////API//////////////////
-
-// const students = []
-
-
-
+//Call the FB data
 Promise.resolve(firebase.getStudents()).then((values) => {
-  // app.innerHTML+=values; 
-  // console.log(values);
 
 const students = values
 
+//Sorting JS
 sortDesc()
-// isSortAsc = !isSortAsc;
 
+//EventListener to trigger sortDesc function to table
 document.getElementById("desc").addEventListener("click", () => {
   students.reverse()
   renderTable(students)
 });
 
+//Function to sort students by points
 function sortDesc(){
 students.sort((s1, s2)=> s1.points >= s2.points).reverse()
-// isSortAsc = false
 }
+//Render table after each sorting
 renderTable(students)
 // document.getElementById("asce").addEventListener("click", () => {
 //   students.reverse()
 //   renderTable(students)
 // });
-
-
 // function sortAsc(){
 // students.sort((s2, s1)=> s2.index >= s1.index)
 // renderTable(students)
@@ -45,7 +37,7 @@ renderTable(students)
 
 
 
-
+//Table creation and row filling from DB
   function renderTable(students){
 
     table.innerHTML= `<thead class="thead-inverse">
@@ -64,7 +56,7 @@ renderTable(students)
         table.parents("tr").remove();
     }
 
-
+    //For each element on the table, load DB data
     for(let index in students){
       // app.innerHTML+= values[index].name
       const row = document.createElement('tr')
@@ -84,7 +76,6 @@ renderTable(students)
       row.appendChild(points)
       row.appendChild(del)
       tbody.appendChild(row)
-
       
     }
     table.appendChild(tbody)
@@ -92,22 +83,21 @@ renderTable(students)
   }
 
 
-
+//Form to submit new data into the DB 
+  //   // Get the value the users has put in
     let nameInput = document.querySelector("#name").value;
     let pointsInput = document.querySelector("#points").value;
 
     console.log(nameInput,pointsInput);
 
+    //   // Check if the input is empty or not. If not = send data to database
     if (nameInput !== "" && pointsInput !== "") {
       firebase.writeUserData(nameInput, pointsInput);
     }
 
-
-
   nameInput.value = ""
   pointsInput.value = ""
 
-  
   const submitButton = document.querySelector("#submit");
   submitButton.addEventListener("click", () => {
   firebase.writeUserData; 
@@ -118,13 +108,7 @@ renderTable(students)
 
 
 
-
-
-
-
-
-
- 
+//SOME TRYOUTS AND RAW CODING
 
 
 // console.log(students);

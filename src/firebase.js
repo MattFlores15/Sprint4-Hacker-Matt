@@ -36,16 +36,9 @@ export const writeUserData = async (name, points) => {
   
 }
 
+//Export data from FB
 export const getStudents = async () =>{
 //   console.log("get data");
-//   // Get the value the users has put in
-
-
-//   // Check in the console if it's right
-  // console.log(nameInput, professionInput);
-
-//   // Check if the input is empty or not. If not = send data to database
-  
 
     // const q = query(collection(db, "Students"), where("name", "==", "Winnie the Pooh"));
     const students = []
@@ -56,12 +49,6 @@ export const getStudents = async () =>{
       });
   return students
 }
-
-
-
-
-
-
 
 // const readData = function readData() {
 
