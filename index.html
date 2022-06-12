@@ -4,10 +4,42 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+
+    <script type="javascript" src="./leader.js"></script>
+    <script
+      src="https://kit.fontawesome.com/dd1d486564.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Sprint 4 - Matt</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <div id="app">
+      <button id="desc">DESC</button>
+
+      <table class="table table-striped" id="ex-table">
+        <!-- <thead class="thead-inverse">
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th><i class="fa-solid fa-sort"></i>Points</th>
+          </tr>
+        </thead> -->
+        <!-- <tbody>
+          <tr id="tr">
+            <td id="Rank"></td>
+            <td id="Name"></td>
+            <td id="Points"></td>
+          </tr>
+        </tbody> -->
+      </table>
+    </div>
+
+    <form id="newData">
+      <input type="name" id="name" />
+      <input type="text" id="points" />
+      <input type="submit" id="submit" />
+    </form>
+
+    <script type="module" src="main.js"></script>
   </body>
 </html>
