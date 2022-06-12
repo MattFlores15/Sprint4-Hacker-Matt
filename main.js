@@ -2,6 +2,7 @@ import './style.css'
 import * as firebase from './src/firebase.js';
 
 
+
 const app = document.querySelector("#app") 
 const table = document.querySelector("#ex-table")
 // let isSortAsc = false
@@ -45,18 +46,18 @@ renderTable(students)
 
 
 
-function renderTable(students){
+  function renderTable(students){
 
-  table.innerHTML= `<thead class="thead-inverse">
-          <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th><i class="fa-solid fa-sort"></i> Points</th>
-            <th>Delete</th>
-          </tr>
-        </thead>`;
-  
-  const tbody = document.createElement('tbody')
+    table.innerHTML= `<thead class="thead-inverse">
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th><i class="fa-solid fa-sort"></i> Points</th>
+              <th>Delete</th>
+            </tr>
+          </thead>`;
+    
+    const tbody = document.createElement('tbody')
 
   
     function productDelete(table) {
@@ -64,51 +65,62 @@ function renderTable(students){
     }
 
 
-  for(let index in students){
-    // app.innerHTML+= values[index].name
-    const row = document.createElement('tr')
-    const rank = document.createElement('td')
-    rank.innerText = index
-    const name = document.createElement('td')
-    name.innerText = values[index].name
-    const points = document.createElement('td')
-    points.innerText = values[index].points
-    const del = document.createElement('td')
-    del.innerHTML = "<button type='button' id='delete' @click='productDelete(this)' class='btn btn-default'>" + "<i class='fa-solid fa-delete-left'></i>" + "</button>"
-    del.addEventListener("click", () => {
-    productDelete(this)
-    });
-    row.appendChild(rank)
-    row.appendChild(name)
-    row.appendChild(points)
-    row.appendChild(del)
-    tbody.appendChild(row)
+    for(let index in students){
+      // app.innerHTML+= values[index].name
+      const row = document.createElement('tr')
+      const rank = document.createElement('td')
+      rank.innerText = index
+      const name = document.createElement('td')
+      name.innerText = values[index].name
+      const points = document.createElement('td')
+      points.innerText = values[index].points
+      const del = document.createElement('td')
+      del.innerHTML = "<button type='button' id='delete' @click='productDelete(this)' class='btn btn-default'>" + "<i class='fa-solid fa-delete-left'></i>" + "</button>"
+      del.addEventListener("click", () => {
+      productDelete(this)
+      });
+      row.appendChild(rank)
+      row.appendChild(name)
+      row.appendChild(points)
+      row.appendChild(del)
+      tbody.appendChild(row)
 
-    
+      
+    }
+    table.appendChild(tbody)
+
   }
-  table.appendChild(tbody)
+
+
+
+    let nameInput = document.querySelector("#name").value;
+    let pointsInput = document.querySelector("#points").value;
+
+    console.log(nameInput,pointsInput);
+
+    if (nameInput !== "" && pointsInput !== "") {
+      firebase.writeUserData(nameInput, pointsInput);
+    }
+
+
+
+  nameInput.value = ""
+  pointsInput.value = ""
 
   
-
-}
+  const submitButton = document.querySelector("#submit");
+  submitButton.addEventListener("click", () => {
+  firebase.writeUserData; 
+  // window.location.href = window.location.href;
+  });
 
 });
 
 
 
-  let nameInput = document.querySelector("#name").value;
-  let pointsInput = document.querySelector("#points").value;
 
-  if (nameInput !== "" && pointsInput !== "") {
-    firebase.writeUserData(nameInput, pointsInput);
-  }
-  
-  const submitButton = document.querySelector("#submit");
-  submitButton.addEventListener("click", () => {
-  // nameInput.value = ""
-  // pointsInput.value = ""
-  // window.location.href = window.location.href;
-  });
+
+
 
 
 

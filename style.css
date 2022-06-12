@@ -64,7 +64,7 @@ h3:hover{
 .table{
   /* margin: auto; */
   width: 800px;
- 
+  height: fit-content;
 }
 
 .table th{
@@ -84,6 +84,7 @@ h3:hover{
 
 tbody{
   background-color: #191827;
+  height: fit-content;
 }
 
 
