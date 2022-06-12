@@ -40,6 +40,8 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin: 0;
+  padding: 0;
 
   h3 {
     font-size: 3rem;
@@ -95,12 +97,18 @@ h3 {
     padding: 8px;
     color: $color_1;
     border-radius: 5px;
+    cursor: default;
   }
 
   td {
     font-size: 1.2rem;
     padding: 4px 25px;
     color: $color_2;
+    cursor: default;
+  }
+
+  td:hover{
+   background-color: #423f66;
   }
 }
 
@@ -158,11 +166,35 @@ tbody {
   width: 100px !important;
   padding: 4px;
   border: #191827 2px solid;
+  border-radius: 5px;
   cursor: pointer;
   color: $color_1;
   background-color: $background-color_1;
 
   &:hover {
     background-color: $background-color_5;
+  }
+}
+
+/*FOOTER*/
+footer{
+  width: 100%;
+  text-align: center;
+  display: inline;
+}
+
+.footer {
+  
+  border-top: 2px solid darkcyan;
+  margin-top: 150px;
+  width: 100%;
+  background-color: #191827;
+  height: 100px;
+  color: aliceblue;
+  font-size: 1.4rem;
+
+  p{
+    vertical-align: middle;
+    margin-top: 40px;
   }
 }
